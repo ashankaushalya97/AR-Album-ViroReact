@@ -1,32 +1,22 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import {StyleSheet} from 'react-native';
 
 import {
   ViroARScene,
-  ViroText,
-  ViroConstants,
   ViroARTrackingTargets,
   ViroARImageMarker,
-  ViroBox,
-  ViroARPlane,
-  ViroImage,
-  ViroARPlaneSelector,
-  ViroVideo
-
+  ViroVideo,
 } from 'react-viro';
 
-
 export default class HelloWorldSceneAR extends Component {
-
   constructor() {
     super();
   }
 
   render() {
-    
     // ViroARTrackingTargets.createTargets({
     //   "targetOne" : {
     //     source : require('./res/box.jpg'),
@@ -48,43 +38,41 @@ export default class HelloWorldSceneAR extends Component {
     //     },
     // });
     ViroARTrackingTargets.createTargets({
-        "targetOne" : {
-          source : require('./res/t6.png'),
-          orientation : "Up",
-          physicalWidth : 0.1 // real world width in meters
-        },
-        "targetTwo" : {
-              source : require('./res/t7.png'),
-              orientation : "Up",
-              physicalWidth : 0.1 // real world width in meters
-            },
+      targetOne: {
+        source: require('./res/t6.png'),
+        orientation: 'Up',
+        physicalWidth: 0.1, // real world width in meters
+      },
+      targetTwo: {
+        source: require('./res/t7.png'),
+        orientation: 'Up',
+        physicalWidth: 0.1, // real world width in meters
+      },
     });
 
-    return (   
-
-          <ViroARScene>
-
-          <ViroARImageMarker target={"targetOne"} >
+    return (
+      <ViroARScene>
+        <ViroARImageMarker target={'targetOne'}>
           <ViroVideo
-              source={require('./res/vids/s3.mp4')}
-              loop={true}
-              // position={[0,2,-5]}
-              rotation={[-90,0,0]}
-              scale={[.12, .06, 0]}
+            source={require('./res/vids/s3.mp4')}
+            loop={true}
+            // position={[0,2,-5]}
+            rotation={[-90, 0, 0]}
+            scale={[0.12, 0.06, 0]}
           />
-          </ViroARImageMarker>
-          
-          <ViroARImageMarker target={"targetTwo"} >
-          <ViroVideo
-              source={require('./res/vids/s4.mp4')}
-              loop={true}
-              // position={[0,2,-5]}
-              rotation={[-90,0,0]}
-              scale={[.12, .06, 0]}
-          />
-          </ViroARImageMarker>
+        </ViroARImageMarker>
 
-          {/* <ViroARImageMarker target={"targetTwo"} >
+        <ViroARImageMarker target={'targetTwo'}>
+          <ViroVideo
+            source={require('./res/vids/s4.mp4')}
+            loop={true}
+            // position={[0,2,-5]}
+            rotation={[-90, 0, 0]}
+            scale={[0.12, 0.06, 0]}
+          />
+        </ViroARImageMarker>
+
+        {/* <ViroARImageMarker target={"targetTwo"} >
             <ViroVideo
                   source={require('./res/vids/sample1.mp4')}
                   loop={true}
@@ -97,12 +85,9 @@ export default class HelloWorldSceneAR extends Component {
                  
               />
           </ViroARImageMarker> */}
-
-          </ViroARScene>
-      
+      </ViroARScene>
     );
   }
-
 }
 
 var styles = StyleSheet.create({
@@ -111,7 +96,7 @@ var styles = StyleSheet.create({
     fontSize: 30,
     color: '#ffffff',
     textAlignVertical: 'center',
-    textAlign: 'center',  
+    textAlign: 'center',
   },
 });
 
